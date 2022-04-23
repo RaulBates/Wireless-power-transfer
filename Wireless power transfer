@@ -1,0 +1,32 @@
+function calculateCols(ID, calculate) {
+  var final = 0
+  var tbody = document.querySelector('tbody');
+  var howManyCols = tbody.rows[0].cells.length;
+  var totalRow = document.getElementById(ID);
+
+  for (var j = 1; j < howManyCols; j++) {
+    final = calculate;
+    const check = document.createElement('td');
+    check.innerText = final;
+    totalRow.appendChild(check);
+  }
+
+  function getRow(rowID) {
+
+    var result = 0;
+
+    try {
+      var check = document.getElementById(rowID)
+      var thisNumber = parseInt(check.cells[j].childNodes.item(0).data);
+
+      if (!isNaN(thisNumber))
+        result += thisNumber;
+
+    } finally {
+      return result;
+    }
+  }
+
+}
+
+calculateCols('total', getRow('a') + getRow('c'));
